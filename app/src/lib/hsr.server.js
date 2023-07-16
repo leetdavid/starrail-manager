@@ -1,4 +1,3 @@
-import { browser } from '$app/environment';
 import { PUBLIC_HOYO_API_TOKEN, PUBLIC_HOYO_API_UID } from '$env/static/public';
 import { HonkaiStarRail, LanguageEnum } from 'hoyoapi';
 
