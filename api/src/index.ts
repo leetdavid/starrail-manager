@@ -4,12 +4,13 @@ import { hsr } from "./starrail";
 import { CronJob } from "cron";
 
 let checkInJob = new CronJob(
-  "0 * * * * *",
+  "0 0 * * * *",
   async () => {
     console.log("Checking in...");
     console.log("Today's reward:", await hsr.daily.reward());
-    await hsr.daily.claim();
-    console.log("Reward claimed.");
+    const res = await hsr.daily.claim();
+    console.log(res.status);
+    console.log(res.code);
   },
   null,
   true,
