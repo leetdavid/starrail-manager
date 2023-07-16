@@ -6,7 +6,8 @@ export async function load() {
     props: {
       dailyRewardPromise: hsr.daily.reward(),
       claimPromise: hsr.daily.claim(),
-      characters: hsr.record.characters(),
+      charactersPromise: hsr.record.characters(),
+      notePromise: hsr.record.note(),
     },
   };
 }

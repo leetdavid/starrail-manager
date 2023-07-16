@@ -1,8 +1,5 @@
 <script>
-  import '../app.postcss';
-
-  // Your selected Skeleton theme:
-  import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
+  import '../theme.postcss'
 
   // This contains the bulk of Skeletons required styles:
   import '@skeletonlabs/skeleton/styles/skeleton.css';
@@ -12,8 +9,33 @@
 
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 
-  import { storePopup } from '@skeletonlabs/skeleton';
+  import { AppShell, Drawer, Modal, Toast, storePopup } from '@skeletonlabs/skeleton';
+
+  import Header from '$components/layout/Header.svelte';
+  import Sidebar from '$components/layout/Sidebar.svelte';
+  import Footer from '$components/layout/Footer.svelte';
+  import Navigation from '$components/layout/Navigation.svelte';
+
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
 
-<slot />
+<!-- <main>
+  <slot />
+</main> -->
+
+<Toast position="tr" />
+<Modal />
+<Drawer>
+  <Navigation />
+</Drawer>
+
+<AppShell>
+  <svelte:fragment slot="header"><Header /></svelte:fragment>
+  <svelte:fragment slot="sidebarLeft"><Sidebar /></svelte:fragment>
+  <main>
+    <div class="container mx-auto">
+      <slot />
+    </div>
+  </main>
+  <svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
+</AppShell>
