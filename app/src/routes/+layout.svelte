@@ -14,7 +14,6 @@
   import Header from '$components/layout/Header.svelte';
   import Sidebar from '$components/layout/Sidebar.svelte';
   import Footer from '$components/layout/Footer.svelte';
-  import Navigation from '$components/layout/Navigation.svelte';
 
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
@@ -25,9 +24,6 @@
 
 <Toast position="tr" />
 <Modal />
-<Drawer>
-  <Navigation />
-</Drawer>
 
 <AppShell>
   <svelte:fragment slot="header"><Header /></svelte:fragment>

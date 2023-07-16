@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Button from '$components/Button.svelte';
-  import Spinner from '$components/Spinner.svelte';
   import HSRAward from '$components/HSRAward.svelte';
   import HSRClaim from '$components/HSRClaim.svelte';
   import HSRNote from '$components/HSRNote.svelte';
