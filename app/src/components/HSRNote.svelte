@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { IHSRNote } from 'hoyoapi';
-
   import { Avatar, ProgressBar, filter, XPro } from '@skeletonlabs/skeleton';
+  import { tweened } from 'svelte/motion';
+  import { writable, type Writable } from 'svelte/store';
 
   export let note: IHSRNote;
 
@@ -17,22 +18,42 @@
       .replace(/,([^,]*)$/, ', and$1');
   }
 
+  let staminaTimer = note.stamina_recover_time;
+  let staminaBar = tweened(note.current_stamina, { duration: 1000 });
+
+  setInterval(() => {
+    if (staminaTimer > 0) staminaTimer--;
+  }, 1000);
+
+  setInterval(() => {
+    if ($staminaBar < note.max_stamina) $staminaBar++;
+  }, 1000 * 60 * 5);
+
+  setInterval(() => {
+    for (let i = 0; i < note.expeditions.length; i++) {
+      if (note.expeditions[i].remaining_time > 0) note.expeditions[i].remaining_time--;
+      note.expeditions[i] = { ...note.expeditions[i] };
+    }
+  }, 1000);
+
   console.log(note.expeditions);
 </script>
 
 <div class="block card p-4">
   <h4 class="h4">Stamina</h4>
   <div class="flex items-center py-2 gap-4">
-    <ProgressBar value={note.current_stamina} max={note.max_stamina} class="flex-1" />
-    <span class="flex-0">{note.current_stamina} / {note.max_stamina}</span>
+    <ProgressBar value={$staminaBar} max={note.max_stamina} class="flex-1" />
+    <span class="flex-0">{$staminaBar} / {note.max_stamina}</span>
   </div>
-  <p>{convert(note.stamina_recover_time)} until full recovery</p>
+  <p>{convert(staminaTimer)} until full recovery</p>
 
   <hr class="my-3" />
 
   <div class="flex">
     <h4 class="h4 flex-1">Expeditions</h4>
-    <span class="flex-0">{note.accepted_epedition_num} accepted / {note.total_expedition_num} total</span>
+    <span class="flex-0"
+      >{note.accepted_epedition_num} accepted / {note.total_expedition_num} total</span
+    >
   </div>
   <div class="py-4 grid grid-cols-2 grid-rows-2 gap-4">
     {#each note.expeditions as expedition}
@@ -43,12 +64,17 @@
             <Avatar
               width="w-14"
               src={avatar}
-              action={filter} actionParams="#Apollo"
+              action={filter}
+              actionParams="#Apollo"
               border="border-2 border-secondary-700 hover:!border-secondary-500"
             />
           {/each}
         </div>
-        <p class="text-sm">{expedition.status}, {convert(expedition.remaining_time)} left</p>
+        {#if expedition.status === 'Ongoing'}
+          <p class="text-sm">{expedition.status}, {convert(expedition.remaining_time)} left</p>
+        {:else}
+          <p class="text-sm">{expedition.status}</p>
+        {/if}
       </div>
     {/each}
   </div>
