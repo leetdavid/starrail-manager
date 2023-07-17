@@ -39,15 +39,15 @@
   console.log(note.expeditions);
 </script>
 
-<div class="block card p-4">
+<div class="block card p-4 space-y-2">
   <h4 class="h4">Stamina</h4>
-  <div class="flex items-center py-2 gap-4">
+  <div class="flex items-center gap-4">
     <ProgressBar value={$staminaBar} max={note.max_stamina} class="flex-1" />
     <span class="flex-0">{$staminaBar} / {note.max_stamina}</span>
   </div>
   <p>{convert(staminaTimer)} until full recovery</p>
 
-  <hr class="my-3" />
+  <hr />
 
   <div class="flex">
     <h4 class="h4 flex-1">Expeditions</h4>
@@ -55,7 +55,7 @@
       >{note.accepted_epedition_num} accepted / {note.total_expedition_num} total</span
     >
   </div>
-  <div class="py-4 grid grid-cols-2 grid-rows-2 gap-4">
+  <div class="grid grid-cols-2 grid-rows-2 gap-4">
     {#each note.expeditions as expedition}
       <div class="card card-hover p-4 shadow">
         <h5 class="h5">{expedition.name}</h5>

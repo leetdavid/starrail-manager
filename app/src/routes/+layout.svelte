@@ -29,7 +29,7 @@
   <svelte:fragment slot="header"><Header /></svelte:fragment>
   <svelte:fragment slot="sidebarLeft"><Sidebar /></svelte:fragment>
   <main>
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
       <slot />
     </div>
   </main>

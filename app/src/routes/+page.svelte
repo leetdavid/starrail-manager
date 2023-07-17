@@ -1,4 +1,5 @@
 <script lang="ts">
+  import HSRNoteSkeleton from '$components/placeholders/HSRNoteSkeleton.svelte';
   import HSRAward from '$components/HSRAward.svelte';
   import HSRClaim from '$components/HSRClaim.svelte';
   import HSRNote from '$components/HSRNote.svelte';
@@ -25,10 +26,13 @@
 
 <div class="my-8 grid gap-4">
   <h3 class="h3">Note</h3>
-  {#await notePromise then note}
+  {#await notePromise}
+    <HSRNoteSkeleton />
+  {:then note}
     <HSRNote {note} />
   {/await}
 </div>
+
 
 <!-- {#await dailyRewardPromise}
   <Spinner />
