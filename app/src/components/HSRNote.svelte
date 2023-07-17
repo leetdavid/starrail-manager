@@ -39,7 +39,7 @@
   console.log(note.expeditions);
 </script>
 
-<div class="block card p-4 space-y-2">
+<div class="block card p-6 space-y-2">
   <h4 class="h4">Stamina</h4>
   <div class="flex items-center gap-4">
     <ProgressBar value={$staminaBar} max={note.max_stamina} class="flex-1" />
