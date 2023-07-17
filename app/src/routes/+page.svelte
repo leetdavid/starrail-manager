@@ -9,6 +9,10 @@
   const { dailyRewardPromise, claimPromise, notePromise } = data.props;
 </script>
 
+<svelte:head>
+  <title>StarRail Manager</title>
+</svelte:head>
+
 <div class="h-12" />
 
 <h1 class="h1">
