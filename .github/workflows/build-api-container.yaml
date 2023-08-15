@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN  }}
 
       - name: Display the path
-        run: echo $PATH
+        run: ls -la
         shell: bash
 
       - name: Build and push
