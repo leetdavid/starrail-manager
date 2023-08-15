@@ -11,6 +11,7 @@ on:
 jobs:
   build-api-container:
     runs-on: ubuntu-latest
+    environment: personal_projects
     steps:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
