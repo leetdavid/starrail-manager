@@ -28,5 +28,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: "{{defaultContext}}:api"
           push: true
           tags: leetdavid/starrail-automation-api:latest
