@@ -25,6 +25,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN  }}
 
+      - name: Display the path
+        run: echo $PATH
+        shell: bash
+
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
