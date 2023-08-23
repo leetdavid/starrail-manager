@@ -8,7 +8,7 @@ A web application dashboard for viewing your Honkai: Star Rail stats, and automa
 - (WIP, hoyoapi is bugged) Auto-redeem codes shown on [prydwen.gg](https://prydwen.gg/star-rail/)
 - Check the state of your assignments
 - (WIP) Get a discord alert when your assignments are complete
-
+- (WIP) Manage your automations using the webapp
 
 ## Quickstart
 
