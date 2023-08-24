@@ -16,6 +16,8 @@ A web application dashboard for viewing your Honkai: Star Rail stats, and automa
 
 The two required environment variables are `PUBLIC_HOYO_API_TOKEN` and `PUBLIC_HOYO_API_UID`. The instructions on obtaining the token is available on [hoyoapi](https://github.com/vermaysha/hoyoapi), and the UID is simply your in-game UID. 
 
+Copy `.env.template` and rename it to `.env`, and fill in the two environment variables mentioned above.
+
 ### 2. Install Dependencies
 A prerequisite is to have `pnpm` installed globally (check [here](https://pnpm.io/installation) for instructions on installing `pnpm`).
 
