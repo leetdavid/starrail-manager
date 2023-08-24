@@ -4,9 +4,9 @@ A web application dashboard for viewing your Honkai: Star Rail stats, and automa
 
 ## Features
 
-- Auto-claim your dailies using `api` (Currently, it attempts to claim your daillies every hour)
-- (WIP, hoyoapi is bugged) Auto-redeem codes shown on [prydwen.gg](https://prydwen.gg/star-rail/)
+- Auto-claim your dailies using `api` (Currently, it attempts to claim your daillies every hour, and only the `api` is required for this to work.)
 - Check the state of your assignments
+- (WIP, hoyoapi is bugged) Auto-redeem codes shown on [prydwen.gg](https://prydwen.gg/star-rail/)
 - (WIP) Get a discord alert when your assignments are complete
 - (WIP) Manage your automations using the webapp
 
